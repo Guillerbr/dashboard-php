@@ -56,6 +56,8 @@ if (isset($_SESSION['id_usuario'])) {
 		?>
 
 			<li><a href="">Serviço1</a></li>
+			<li><a href="">Serviço2</a></li>
+			<li><a href="">Serviço3</a></li>
 			<li><a href="">Contato</a></li>
 			<li><a href="sair.php">Adicionar saldo</a></li>
 			<li><a href="checker.php">Adicionar diária</a></li>
