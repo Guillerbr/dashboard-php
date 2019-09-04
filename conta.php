@@ -3,12 +3,17 @@
 date_default_timezone_set('America/Sao_Paulo');
 
 require_once 'classes/usuarios_buscar.php'; //requer o arquivo que contem a classe das funçoes
+require_once 'classes/usuarios.php';
 
+
+
+//variavel libera ou nao a inscricao publica,se nao somente o admin ou user pode cadastrar usuario
 session_start();
 
 if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao,redireciona para o login
 	header("location:index.php");
 }
+
 //funcao importante que liga a sessao usuario
 if (isset($_SESSION['id_usuario'])) {
 	$u = new Usuario_Busca("sistem_login", "localhost", "root", "");
@@ -22,9 +27,19 @@ if (isset($_SESSION['id_usuario'])) {
 //verifica se existe a sessão do usuario se sim,busca no banco pela funcao mostrarSaldo na classe Usuario_Busca e retorna
 if (isset($_SESSION['id_usuario'])) {
 	$u = new Usuario_Busca("sistem_login", "localhost", "root", "");
-	$informada = $u->mostrarSaldo($_SESSION['id_usuario']);
+	$informada = $u->mostrarSaldo($_SESSION['id_usuario']);                   
 }
 
+
+
+
+/*   //function verifica se o usuario id 1 é o admin
+if (isset($_SESSION['id_master'])) {
+	$u = new Usuario("sistem_login", "localhost", "root", "");
+	$informada = $u->verifAdmin($_SESSION['id_usuario']);                   
+}
+
+*/
 ?>
 
 <html>
@@ -38,20 +53,23 @@ if (isset($_SESSION['id_usuario'])) {
 </head>
 
 <body>
-	<h1>GCHECKER</h1>
+	<h1>GG BANK</h1>
 	<nav>
 
 		<ul>
 
 			<?php
 			
-
-       // $admin = $_SESSION['id_usuario'];
+          // $id_master = $_SESSION['id_master'];
+      
 
 			if (isset($_SESSION['id_master'])) { ?>
 				<li><a href="cadastrar.php">Cadastrar</a></li>
+				
+			
 
 			<?php    }
+			
 
 		?>
 
@@ -59,8 +77,8 @@ if (isset($_SESSION['id_usuario'])) {
 			<li><a href="">Serviço2</a></li>
 			<li><a href="">Serviço3</a></li>
 			<li><a href="">Contato</a></li>
-			<li><a href="sair.php">Adicionar saldo</a></li>
-			<li><a href="checker.php">Adicionar diária</a></li>
+			<li><a href="">Adicionar saldo</a></li>
+			<li><a href="">Adicionar diária</a></li>
 			<li><a href="alterasenha.php">Alterar Senha</a></li>
 			<li><a href="sair.php">Sair</a></li>
 
@@ -78,9 +96,15 @@ if (isset($_SESSION['id_usuario'])) {
 ?>
 
 	<div class="container-fluid">
-		<h2 class="display-4 m-7">Olá,<?php echo $informa['nome']; ?></h2>
+		<h2 class="display-4 m-7">Olá,<?php echo $informa['nome']; ?></h2>        
+		
 	</div>
-
+	<div>
+<h3 class="display-9 m-3">ID:                     <?php echo $informa['id_usuario']; ?></h3>
+   </div>
+   
+   <h3 class="display-9 m-3">Email:                     <?php echo $informa['email']; ?></h3>
+   </div>
 
 	<div class="inforide">
 		<div class="row">

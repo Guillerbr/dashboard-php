@@ -51,16 +51,23 @@
 					$dado = $sql->fetch(); //transforma o retorno da query em array com os nomes das colunas
 					session_start();       //iniciando a sessao
 
+                   
 					if ($_SESSION['id_usuario'] = $dado['id_usuario']) {
 
-						return true;
-					}
-				}
+						
+					} 
+					if ($dado['id_usuario'] = 1 ) {
+						
+						$_SESSION['id_master'];
+						$_SESSION['id_master'] = 1;
+				
+				}     
+				return true;
 
 
-			/*    
+			   
 				 //verifica se usuario é id 1 se sim ele é id_master admin
-				 
+				 /*
 				if ($dado['id_usuario'] ==  1) {
 					$_SESSION['id_master'] = 1;            //seta int admin
 				} else {
@@ -73,7 +80,24 @@
 		
            */
 		}
+}
 
+/*
+
+     public function verifAdmin($id_usuario)
+		{
+
+			global $pdo;
+
+			$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE id_usuario=:id_usuario");
+			$sql->bindValue(":id_usuario", $id_usuario);
+			$sql->execute();
+			return $sql;
+			
+		}
+
+
+*/
 
 
 

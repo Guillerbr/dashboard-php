@@ -1,6 +1,14 @@
 <?php
 require_once 'classes/usuarios.php';
 $u = new Usuario; //herda da classe acima transforma em variavel
+
+session_start();
+
+if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao,redireciona para o login
+	header("location:index.php");
+}
+
+
 ?>
 <html lang="pt-br">
 
