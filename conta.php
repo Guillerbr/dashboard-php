@@ -65,7 +65,7 @@ if (isset($_SESSION['id_master'])) {
           // $id_master = $_SESSION['id_master'];
       
 
-			if (isset($_SESSION['id_master']) || $id_master) { ?>
+			if (isset($_SESSION['id_master'])) { ?>
 				<li><a href="cadastrar.php">Cadastrar</a></li>
 				
 			
