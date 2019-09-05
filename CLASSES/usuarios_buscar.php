@@ -5,7 +5,7 @@ class Usuario_Busca
     private $pdo;
 	//public $msgErro = "";
 
-
+/*
 	public function __construct($dbname, $host, $usuario, $senha)
 	{
 
@@ -17,7 +17,23 @@ class Usuario_Busca
 		} catch (Exception $e) {
 			echo "Erro: " . $e->getMessage();
 		}
-	} 
+	}
+
+*/
+
+   public function __construct($dbname, $host, $usuario, $senha)
+	{
+
+
+		try {
+			$this->pdo = new PDO("mysql:dbname=" . $dbname . ";host=" . $host, $usuario, $senha);
+		} catch (PDOException $e) {
+			echo "Erro com DB: ".$e->getMessage();
+		} catch (Exception $e) {
+			echo "Erro: " .$e->getMessage();
+		}
+	}
+
 
 
 	public function cadastrar($nome, $email, $senha)
@@ -90,6 +106,11 @@ class Usuario_Busca
 		$dados = $cmd->fetch();
 		return $dados;
 	}
+
+
+
+
+
 
 
 }

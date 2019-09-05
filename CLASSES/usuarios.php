@@ -59,7 +59,6 @@
 					if ($dado['id_usuario'] = 1 ) {
 						
 						$_SESSION['id_master'];
-						$_SESSION['id_master'] = 1;
 				
 				}     
 				return true;

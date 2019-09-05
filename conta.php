@@ -1,5 +1,7 @@
 <?php
 
+
+
 date_default_timezone_set('America/Sao_Paulo');
 
 require_once 'classes/usuarios_buscar.php'; //requer o arquivo que contem a classe das funçoes
@@ -32,8 +34,8 @@ if (isset($_SESSION['id_usuario'])) {
 
 
 
-
-/*   //function verifica se o usuario id 1 é o admin
+/*
+  //function verifica se o usuario id 1 é o admin
 if (isset($_SESSION['id_master'])) {
 	$u = new Usuario("sistem_login", "localhost", "root", "");
 	$informada = $u->verifAdmin($_SESSION['id_usuario']);                   
@@ -63,7 +65,7 @@ if (isset($_SESSION['id_master'])) {
           // $id_master = $_SESSION['id_master'];
       
 
-			if (isset($_SESSION['id_master'])) { ?>
+			if (isset($_SESSION['id_master']) || $id_master) { ?>
 				<li><a href="cadastrar.php">Cadastrar</a></li>
 				
 			

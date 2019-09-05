@@ -4,9 +4,15 @@ $u = new Usuario; //herda da classe acima transforma em variavel
 
 session_start();
 
+//$id_master = $_SESSION['id_master'];
+
+
+//on ou off public cadastro
 if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao,redireciona para o login
 	header("location:index.php");
 }
+
+
 
 
 ?>
