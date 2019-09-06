@@ -51,8 +51,8 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 				$u->conectar("sistem_login", "localhost", "root", "");
 				if ($u->msgErro == "") //conectado normalmente;
 					{
-						if ($senha == $confirmarSenha) {
-							if ($u->cadastrar_user($nome, $email, $senha)) {
+						if ($senha == $confirmarSenha) {            //confirma a senha
+							if ($u->cadastrar_user($nome, $email, $senha)) {          //funcao que cadastra
 								echo '<br>';
 								echo "Cadastro realizado com sucesso!";
 							} else {
