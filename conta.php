@@ -65,7 +65,7 @@ if (isset($_SESSION['id_master'])) {
           // $id_master = $_SESSION['id_master'];
       
 
-			if (isset($_SESSION['id_master'])) { ?>
+			if (isset($_SESSION['id_status']))  { ?>
 				<li><a href="cadastrar.php">Cadastrar</a></li>
 				
 			
@@ -77,7 +77,7 @@ if (isset($_SESSION['id_master'])) {
 
 			<li><a href="">Serviço1</a></li>
 			<li><a href="">Serviço2</a></li>
-			<li><a href="">Serviço3</a></li>
+			<li><a href="cadastrar.php">Cadastro</a></li>
 			<li><a href="">Contato</a></li>
 			<li><a href="">Adicionar saldo</a></li>
 			<li><a href="">Adicionar diária</a></li>

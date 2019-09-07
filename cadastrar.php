@@ -37,6 +37,8 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 			<a href="index.php">Já é inscrito? <strong>Faça o Login</strong></a>
 		</form>
 		<?php
+		 $id_status = 0;
+		
 		//verificar se clicou no botao
 		if (isset($_POST['nome'])) {
 			$nome = htmlentities(addslashes($_POST['nome'])); //addslashes e htmlentitiies evitam codigos maliciosos.
@@ -44,10 +46,14 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 			$email = htmlentities(addslashes($_POST['email']));
 			$senha = htmlentities(addslashes($_POST['senha']));
 			$confirmarSenha = htmlentities(addslashes($_POST['confSenha']));
+			
+			
+			
 
 
 			//verificando se todos os campos nao estao vazios
-			if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarSenha)) {
+			if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarSenha))   {
+				
 				$u->conectar("sistem_login", "localhost", "root", "");
 				if ($u->msgErro == "") //conectado normalmente;
 					{
