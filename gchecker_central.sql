@@ -34,3 +34,22 @@ CREATE TABLE usuarios (
 
 
 
+/*
+
+EXEMPLO 
+
+CREATE TABLE user_client (
+
+id int not null AUTO_INCREMENT,
+data date,
+id_user int,
+user_status int,
+primary key (id),
+foreign key (id_user) references user_id(id),
+foreign key (user_status) references atatus_user(id_status)
+
+
+
+)default charset = utf8;
+
+*/

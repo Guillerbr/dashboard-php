@@ -53,13 +53,8 @@
 
                    
 					if ($_SESSION['id_usuario'] = $dado['id_usuario']) {
-						//prototip
 
-						if ($dado['id_usuario'] ==  1){
-							 (!isset($_SESSION['id_usuario'])) {  
-	header("location:index.php");
-}
-							}
+						
 					} 
 					if ($dado['id_usuario'] = 1 ) {
 						
