@@ -4,23 +4,25 @@ $u = new Usuario; //herda da classe acima transforma em variavel
 
 session_start();
 //$_SESSION = $id_status;
+//$id_status = 4;
 
-if (isset($_SESSION['id_status']) == 1) {  //se não está definido o id do usuario na sessao,redireciona para o login
-	header("location:cadastrar.php");
-}
-
-
-if (isset($_SESSION['id_status']) == 4) {
-	header("location:conta.php");
-}
 
 //on ou off public cadastro
-/*
-if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao,redireciona para o login
+if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao,redireciona 
 	header("location:index.php");
 }
 
+/*
+$u->conectar("sistem_login", "localhost", "root", "");
+if ($u->rolesAcess($id_status)) {          //funcao que cadastra
+								echo '<br>';
+								echo "Cadastro realizado com sucesso!";
+							} else {
+								echo '<br>';
+								echo "Email já cadastrado, retorne e faça login.";
+							}}
 */
+
 ?>
 <html lang="pt-br">
 

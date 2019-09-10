@@ -85,13 +85,13 @@
 
 /*
 
-     public function verifAdmin($id_usuario)
+     public function rolesAcess($id_status)
 		{
 
 			global $pdo;
 
-			$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE id_usuario=:id_usuario");
-			$sql->bindValue(":id_usuario", $id_usuario);
+			$sql = $pdo->prepare("SELECT id_status FROM usuarios WHERE id_status=:id_status");
+			$sql->bindValue(":id_status", $id_status);
 			$sql->execute();
 			return $sql;
 			
