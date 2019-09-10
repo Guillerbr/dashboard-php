@@ -31,6 +31,7 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 			<input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
 
 			<input type="email" name="email" placeholder="Usuario" maxlength="40">
+			<input type="text" name="id_status" placeholder="Tipo de Usuário" maxlength="40">
 			<input type="password" name="senha" placeholder="Senha" maxlength="20">
 			<input type="password" name="confSenha" placeholder="Confirmar senha">
 			<input type="submit" value="Cadastrar" class="entrar">
@@ -43,6 +44,7 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 		if (isset($_POST['nome'])) {
 			$nome = htmlentities(addslashes($_POST['nome'])); //addslashes e htmlentitiies evitam codigos maliciosos.
 			//$telefone =htmlentities(addslashes($_POST['telefone']));
+			$id_status = htmlentities(addslashes($_POST['id_status']));
 			$email = htmlentities(addslashes($_POST['email']));
 			$senha = htmlentities(addslashes($_POST['senha']));
 			$confirmarSenha = htmlentities(addslashes($_POST['confSenha']));
@@ -58,8 +60,8 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 				if ($u->msgErro == "") //conectado normalmente;
 					{
 						if ($senha == $confirmarSenha) {                               //confirma a senha
-						$id_status == 4;
-							if ($u->cadastrar_user($nome, $email, $senha)) {          //funcao que cadastra
+						//$id_status == 4;
+							if ($u->cadastrar_user($id_status,$nome, $email, $senha)) {          //funcao que cadastra
 								echo '<br>';
 								echo "Cadastro realizado com sucesso!";
 							} else {
