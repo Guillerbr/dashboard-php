@@ -15,20 +15,22 @@
 				$msgErro - $e->getMessage(); /*pega a mensagem de erro do php e joga na variavel msegErro e mostra pro usuario.*/
 			}
 		}
-		public function cadastrar_user($nome, $email, $senha)
+		public function cadastrar_user($id_status, $nome, $email, $senha)
 		{
 			global $pdo;
 			//global $msgErro;
 			//verificando se existe usuario cadastrado.
-			$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email=:e"); //pega o id do usuario buscando pelo emial preenchido no cadastro
+			$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE id_status= :st AND email= :e"); //pega o id do usuario buscando pelo emial preenchido no cadastro
 			$sql->bindValue(":e", $email);  //substitui o :e pelo email preenchido no cadastro
+			$sql->bindValue(":st", $id_status);
 			$sql->execute();
 			if ($sql->rowCount() > 0) //verificando houve resposta na consulta
 				{
 					return false; // ja tem cadastro
 				} else {
 				//caso nao tenha
-				$sql = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:n,:e,:s)");
+				$sql = $pdo->prepare("INSERT INTO usuarios (id_status, nome, email, senha) VALUES (:st,:n,:e,:s)");
+				$sql->bindValue(":st", $id_status);
 				$sql->bindValue(":n", $nome);
 				$sql->bindValue(":e", $email);
 				$sql->bindValue(":s", md5($senha));

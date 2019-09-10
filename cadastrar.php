@@ -37,7 +37,7 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 			<a href="index.php">Já é inscrito? <strong>Faça o Login</strong></a>
 		</form>
 		<?php
-		 $id_status = 0;
+		
 		
 		//verificar se clicou no botao
 		if (isset($_POST['nome'])) {
@@ -57,7 +57,8 @@ if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario
 				$u->conectar("sistem_login", "localhost", "root", "");
 				if ($u->msgErro == "") //conectado normalmente;
 					{
-						if ($senha == $confirmarSenha) {            //confirma a senha
+						if ($senha == $confirmarSenha) {                               //confirma a senha
+						$id_status == 4;
 							if ($u->cadastrar_user($nome, $email, $senha)) {          //funcao que cadastra
 								echo '<br>';
 								echo "Cadastro realizado com sucesso!";
