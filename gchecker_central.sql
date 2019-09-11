@@ -1,34 +1,23 @@
-
 CREATE TABLE status_usuarios (
-  id int AUTO_INCREMENT PRIMARY KEY ,
-  names_status_users int(50),
-  FOREIGN KEY(id) REFERENCES usuarios (id_status),
-  nome varchar(30),
-   create_at date, 
-   update_at date
-
-);
-  
-CREATE TABLE user_saldo (
- id_saldo int AUTO_INCREMENT PRIMARY KEY ,
- valor_saldo int(50),
- dias_saldo int(50),
- fk_id_usuario int,
- FOREIGN KEY(fk_id_usuario) REFERENCES usuarios (id_usuario),
- create_at date, 
- update_at date
-  
-);
-
-
+  id int AUTO_INCREMENT PRIMARY KEY,
+  names_status_users int(50)
+   );
 
 CREATE TABLE usuarios (
-  id_usuario int AUTO_INCREMENT PRIMARY KEY ,
-  id_status  int 
+  id_usuario int AUTO_INCREMENT PRIMARY KEY,
+  id_status  int,
   nome varchar(30), 
   email varchar(40),
   senha varchar(32),
-  status_usuario int PRIMARY KEY 
+  FOREIGN KEY(id_status) REFERENCES status_usuarios (id)
+);
+
+CREATE TABLE user_saldo (
+ id_saldo int AUTO_INCREMENT PRIMARY KEY,
+ fk_id_usuario int,
+ valor_saldo int(50),
+ dias_saldo int(50),
+ FOREIGN KEY(fk_id_usuario) REFERENCES usuarios (id_usuario)
 );
 
 
@@ -60,17 +49,17 @@ CREATE TABLE aluno (
     telefone varchar (30)
 );
 
-CREATE TABLE disciplina(
+CREATE TABLE disciplina (
     id_disci int PRIMARY KEY,
     nome varchar (30),
     carga int (30)
 );
 
-CREATE TABLE aluno_disciplina(
-    registro varchar (30),
-    id_disci int,
-    FOREIGN KEY (registro) REFERENCES aluno(registro),
-    FOREIGN KEY (id_disci) REFERENCES disciplina(id_disc)
+CREATE TABLE aluno_disciplina (
+    registro_alu varchar (30),
+    id_disci_ger int,
+    FOREIGN KEY(registro_alu) REFERENCES aluno (registro),
+    FOREIGN KEY(id_disci_ger) REFERENCES disciplina (id_disci)
 );
 
 
