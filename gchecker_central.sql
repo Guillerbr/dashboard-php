@@ -48,8 +48,33 @@ primary key (id),
 foreign key (id_user) references user_id(id),
 foreign key (user_status) references atatus_user(id_status)
 
-
-
 )default charset = utf8;
+
+
+-------------------------------------------------------------
+EXEMPLO N : N    -MUITOS PARA MUITOS
+
+CREATE TABLE aluno (
+    registro varchar (30) PRIMARY KEY,
+    nome varchar (30),
+    telefone varchar (30)
+);
+
+CREATE TABLE disciplina(
+    id_disci int PRIMARY KEY,
+    nome varchar (30),
+    carga int (30)
+);
+
+CREATE TABLE aluno_disciplina(
+    registro varchar (30),
+    id_disci int,
+    FOREIGN KEY (registro) REFERENCES aluno(registro),
+    FOREIGN KEY (id_disci) REFERENCES disciplina(id_disc)
+);
+
+
+
+
 
 */
