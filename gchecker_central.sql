@@ -1,6 +1,6 @@
 CREATE TABLE status_usuarios (
   id int AUTO_INCREMENT PRIMARY KEY,
-  names_status_users int(50)
+  names_status_users varchar(50)
    );
 
 CREATE TABLE usuarios (

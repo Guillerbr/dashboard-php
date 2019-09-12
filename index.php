@@ -28,13 +28,17 @@ $u = new Usuario;
 		$senha = htmlentities(addslashes($_POST['senha']));
 		//verificando se todos os campos nao estao vazios
 		if (!empty($email) && !empty($senha)) {
-			$u->conectar("sistem_login", "localhost", "root", ""); //conectando ao banco
-			if ($u->msgErro == "") // caso a mensagem esteja vazia, login ok
+			$u->conectar("sistem_login", "localhost", "root", ""); //conectando ao banco,function conectar
+			if ($u->msgErro == "")               // caso a mensagem esteja vazia, login ok
 				{
 					if ($u->logar($email, $senha)) {
 						header("location:conta.php"); //encaminhado para proxima areavip apos verificar usuario e senha
+						/*
+						header ('WWW-Authenticate: Negotiate');      //redireciona conforme status user,Authorization router
+						header('WWW-Authenticate: NTLM', false);
+						*/
 					} else {
-						?>
+					?>
 					<div class="msg_erro">
 						Email e/ou senha estão incorretos!
 					</div>
